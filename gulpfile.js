@@ -26,6 +26,7 @@ gulp.task('clean', function () {
     './debounce.js',
     './Bounce.js',
     './Fade.js',
+    './FadeCustom.js',
     './Flash.js',
     './HeadShake.js',
     './Jello.js',
