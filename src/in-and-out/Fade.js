@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import { bool } from 'prop-types';
+import { bool, string } from 'prop-types';
 import Reveal from '../Reveal';
 import { animation } from '../lib/globals';
 
@@ -19,14 +19,14 @@ const
     right: bool,
     top: bool,
     bottom: bool,
-    big: bool,
+    amount: string,
     opposite: bool,
   },
   defaultProps = {
 
   };
 
-function Fade({out, left, right, up, down, top, bottom, big, opposite, ...props}, context) {
+function Fade({out, left, right, up, down, top, bottom, amount, opposite, ...props}, context) {
 
   function factory(reverse) {
 
@@ -34,7 +34,7 @@ function Fade({out, left, right, up, down, top, bottom, big, opposite, ...props}
       const transform = left||right||up||down||top||bottom;
       let x, y;
       if (transform) {
-        const dist = big ? '2000px' : '100%', change = opposite && reverse;
+        const dist = amount || '100%', change = opposite && reverse;
         x = left ? (change ? '':'-') + dist : ( right ? (change ? '-':'') + dist : '0' );
         y = down || top ? (change ? '':'-') + dist : ( up || bottom ? (change ? '-':'') + dist : '0' ) ;
       }
